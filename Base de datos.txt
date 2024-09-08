@@ -1,0 +1,47 @@
+Base de datos:
+
+CREATE DATABASE Evidencia4;
+
+use Evidencia4;
+
+CREATE TABLE Retroexcavadora (
+id int auto_increment primary key,
+altura_maxima int not null,
+velocidad_maxima int not null,
+carga_actual int default 0,
+posicion float default 0
+);
+
+CREATE TABLE Actividad (
+ID int auto_increment primary key,
+retroexcavadora_id INT, 
+tipo_de_actividad varchar(50) not null,
+valor float not null, 
+fecha datetime default current_timestamp,
+foreign key (retroexcavadora_id) references Retroexcavadora(ID)
+);
+
+insert into Retroexcavadora (altura_maxima, velocidad_maxima) values (10, 20);
+insert into Retroexcavadora (altura_maxima, velocidad_maxima) values (14, 15);
+insert into Retroexcavadora (altura_maxima, velocidad_maxima) values (8, 25);
+insert into Retroexcavadora (altura_maxima, velocidad_maxima) values (15, 10);
+insert into Retroexcavadora (altura_maxima, velocidad_maxima) values (10, 18);
+insert into Retroexcavadora (altura_maxima, velocidad_maxima) values (14, 22);
+insert into Retroexcavadora (altura_maxima, velocidad_maxima) values (11, 19);
+insert into Retroexcavadora (altura_maxima, velocidad_maxima) values (9, 16);
+insert into Retroexcavadora (altura_maxima, velocidad_maxima) values (13, 20);
+insert into Retroexcavadora (altura_maxima, velocidad_maxima) values (7, 30);
+
+insert into Actividad (retroexcavadora_id, tipo_de_actividad, valor) values (1, 'excavar', 50);
+insert into Actividad (retroexcavadora_id, tipo_de_actividad, valor) values (1, 'levantar_carga', 500);
+insert into Actividad (retroexcavadora_id, tipo_de_actividad, valor) values (2,'moverse', 100);
+insert into Actividad (retroexcavadora_id, tipo_de_actividad, valor) values (3,'excavar', 75);
+insert into Actividad (retroexcavadora_id, tipo_de_actividad, valor) values (4,'levantar_carga', 300);
+insert into Actividad (retroexcavadora_id, tipo_de_actividad, valor) values (5,'moverse', 150);
+insert into Actividad (retroexcavadora_id, tipo_de_actividad, valor) values (6,'excavar', 90);
+insert into Actividad (retroexcavadora_id, tipo_de_actividad, valor) values (7,'levantar_carga', 400);
+insert into Actividad (retroexcavadora_id, tipo_de_actividad, valor) values (8,'moverse', 200);
+insert into Actividad (retroexcavadora_id, tipo_de_actividad, valor) values (9,'excavar', 60);
+
+SELECT * FROM Retroexcavadora;
+SELECT * FROM Actividad;
